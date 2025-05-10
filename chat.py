@@ -55,7 +55,7 @@ def fetch_dataset():
             for row in data
         }
     else:
-        print("⚠️ Failed to fetch dataset. Using default values.")
+        print("Failed to fetch dataset. Using default values.")
         return {
             "fever": {"Disease": "flu", "Treatment": "rest, hydration, antiviral medications"},
             "rash": {"Disease": "allergy", "Treatment": "avoid allergens, antihistamines, consult doctor"},
@@ -106,10 +106,10 @@ def healthcare_chatbot(user_input):
         gemini_advice = ask_gemini(f"What are additional home remedies for {disease}?")
 
         response = f"""
-        🤒 <strong>Symptom:</strong> {user_input.capitalize()}<br>
-        🦠 <strong>Possible Disease:</strong> {disease.capitalize()}<br>
-        💊 <strong>Suggested Treatment:</strong> {treatment}<br><br>
-        🏥 <strong>Gemini Advice:</strong> {gemini_advice}
+         <strong>Symptom:</strong> {user_input.capitalize()}<br>
+         <strong>Possible Disease:</strong> {disease.capitalize()}<br>
+         <strong>Suggested Treatment:</strong> {treatment}<br><br>
+         <strong>Gemini Advice:</strong> {gemini_advice}
         """
     else:
         
