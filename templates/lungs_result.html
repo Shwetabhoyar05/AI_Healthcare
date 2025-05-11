@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lung Prediction Result</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('static/images/lung_result.jpg'); 
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-12 px-4 flex flex-col items-center">
+
+  <!-- Main Container -->
+  <div class="w-full max-w-4xl space-y-8 bg-white bg-opacity-80 rounded-3xl shadow-xl p-8">
+
+    <!-- Prediction Result Card -->
+    <section>
+      <h2 class="text-3xl font-bold text-center text-indigo-700 mb-6">🎯 Lung Disease Prediction</h2>
+      
+      <div class="flex flex-col items-center space-y-3">
+        <p class="text-2xl font-semibold text-gray-800 bg-indigo-100 px-6 py-3 rounded-lg shadow-sm">
+          {{ prediction }}
+          <span class="text-indigo-600 font-medium text-base">({{ prediction_percentage }}% confidence)</span>
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Recommendations Section -->
+    {% if recommendations %}
+    <section>
+      <h2 class="text-2xl font-bold text-center text-green-700 mb-6">💡 Personalized Health Recommendations</h2>
+      <ul class="space-y-3 text-gray-700 text-sm">
+        {% for rec in recommendations %}
+          <li class="bg-green-50 border-l-4 border-green-400 p-4 rounded-md shadow-sm">{{ rec }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    <!-- Back Button -->
+    <div class="text-center">
+      <a href="/" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-full shadow-md transition-all duration-200 transform hover:scale-105">
+        ⬅️ Go Back
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

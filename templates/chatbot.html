@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-DOCTOR Chatbot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans p-6">
+
+
+  <div class="max-w-3xl mx-auto">
+    <h1 class="text-4xl text-purple-300 font-bold text-center mb-6">🤖 AI-HEALTHCARE Chatbot</h1>
+
+    <!-- Chat Log -->
+    <div id="chat-log" class="bg-gray-800 rounded-lg p-4 h-96 overflow-y-auto mb-4 border border-gray-700 shadow-md"></div>
+
+    <!-- Input Area -->
+    <textarea id="query-input" rows="3" placeholder="Type your medical question..."
+              class="w-full p-3 bg-gray-700 rounded mb-4 text-white resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+
+  
+ <!-- Submit Button -->
+<button id="submit-query"
+class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded font-semibold transition">
+🚀 Submit Query
+</button>
+  </div>
+
+  <script>
+    const queryInput = document.getElementById("query-input");
+    const submitBtn = document.getElementById("submit-query");
+    const chatLog = document.getElementById("chat-log");
+
+    function addMessage(role, text) {
+      const msg = document.createElement("div");
+      msg.className = `mb-4 p-3 rounded leading-relaxed ${role === "user" ? "bg-gray-700 text-right" : "bg-gray-600 text-left"}`;
+      msg.innerHTML = text;
+      chatLog.appendChild(msg);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    async function typeEffect(text) {
+      let displayed = "";
+      for (let i = 0; i < text.length; i++) {
+        displayed += text[i];
+        chatLog.lastElementChild.innerHTML = displayed + "<span class='blinking'>|</span>";
+        await new Promise(r => setTimeout(r, 10));
+      }
+      chatLog.lastElementChild.innerHTML = displayed;
+    }
+
+    submitBtn.addEventListener("click", async () => {
+      const query = queryInput.value.trim();
+      if (!query) return;
+
+      addMessage("user", `<strong>You:</strong> ${query}`);
+      queryInput.value = "";
+      submitBtn.disabled = true;
+
+      addMessage("bot", "<strong>Gemini:</strong> ");
+
+      try {
+        const res = await fetch("/chatbot", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: query })
+        });
+
+        const data = await res.json();
+        await typeEffect(data.response);
+      } catch (err) {
+        chatLog.lastElementChild.innerHTML = "❌ Error processing your request.";
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    window.onload = async () => {
+      try {
+        const res = await fetch("/history");
+        const history = await res.json();
+        history.reverse().forEach(([q, a]) => {
+          addMessage("user", `<strong>You:</strong> ${q}`);
+          addMessage("bot", `<strong>Gemini:</strong> ${a}`);
+        });
+      } catch {
+        console.log("No history loaded.");
+      }
+    };
+  </script>
+
+  <style>
+    .blinking {
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      from, to { opacity: 0 }
+      50% { opacity: 1 }
+    }
+  </style>
+  
+
+
+<!-- Go to Home Button -->
+<div class="flex justify-center mt-6">
+<a href="/" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition">
+🏠 Go to Home
+</a>
+</div>
+
+  
+</body>
+</html>

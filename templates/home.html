@@ -1,0 +1,145 @@
+{% extends "index.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+/* Full Page Styling */
+body {
+    background: linear-gradient(135deg, #1b65ec, #5089ec);
+    min-height: 250vh;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Health Cards Styling */
+.health-card {
+    margin-top: 100px;
+    background: linear-gradient(135deg, #f4f5f7, #e9ecfa);
+    border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.health-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    padding: 12px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #004494);
+    transform: scale(1.05);
+}
+
+/* Services Section */
+.services {
+    margin-top: 100px;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.service-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service {
+    margin-top: 100px;
+    background: white;
+    color: #333;
+    padding: 20px;
+    width: 280px;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service:hover {
+    transform: scale(1.05);
+}
+
+.service h4 {
+    color: #007bff;
+}
+</style>
+
+<!-- Diagnosis Cards -->
+<h2 class="text-center text-2xl font-semibold text-gray-800">Prediction Form</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center health-card p-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-heartbeat"></i> Heart Diagnosis</h5>
+                    <p class="card-text">Click below to Get heart-related prediction</p>
+                    <a href="{{ url_for('heart_diagnosis') }}" class="btn btn-primary">Go to Heart Form</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center health-card p-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-lungs"></i> Lung Diagnosis</h5>
+                    <p class="card-text">Click below to get lung cancer(patient survival) Prediction.</p>
+                    <a href="{{ url_for('lung_diagnosis') }}" class="btn btn-primary">Go to Lung Form</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center health-card p-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-liver"></i> Liver Diagnosis</h5>
+                    <p class="card-text">Click below to enter liver cirrhosis stage prediction</p>
+                    <a href="{{ url_for('liver_diagnosis') }}" class="btn btn-primary">Go to Liver Form</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<!-- About Us Section -->
+<section class="services">
+    <h2>Services (Features) </h2>
+    <div class="service-box">
+        <div class="service">
+            <h4>Diseases Prediction </h4>
+            <p> Includes Heart Disease Prediction, Lung Cancer Survival Prediction, and Liver Cirrhosis Stage Detection using ML models.</p>
+        </div>
+        <div class="service">
+            <h4>Chatbot</h4>
+            <p>AI-powered chatbot (OpenAI) that answers user medical questions in real-time.</p>
+        </div>
+    
+        <div class="service">
+            <h4>Recommendations</h4>
+            <p>Enter symptoms to receive disease prediction, medication, precautions, and diet plans.
+                Recommends 5 suitable alternativs  medicines for any medicine.
+            </p>
+        </div>
+        
+    </div>
+</section>
+
+
+<!-- FontAwesome for Icons -->
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+{% endblock %}
