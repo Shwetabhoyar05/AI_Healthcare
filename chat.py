@@ -38,7 +38,7 @@ Each section should have bullet points (•) and avoid paragraphs. Be friendly a
 
 '''-------------------------------------------------------------------------------------'''
 import  requests
-genai.configure(api_key="AIzaSyDSYhQCYFe4Ldv-9TPVyvCYG3LKXUmC-A0")
+genai.configure(api_key="API KEY")
 
 # Fetch dataset
 def fetch_dataset():
