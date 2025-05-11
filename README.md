@@ -1,7 +1,7 @@
 # AI_Healthcare Overview
 
 HealthAI is an intelligent healthcare platform that uses machine learning to predict risks for heart disease, lung cancer survival, and liver cirrhosis stages based on user data input. It features a symptom analyzer that suggests possible diseases along with recommendations for medications, precautions, and diet, a medicine recommender for a list of 5 alternative options, and an AI chatbot for medical queries. Built with Flask, Python, and SQLite, the web app provides personalized health insights through trained Random Forest and Decision Tree models, while ensuring secure user access via login authentication. HealthAI combines medical AI with user-friendly interfaces to support better health decisions.
-# _______________________________________________________________________
+# _________________________________________________________
 
 # Features
 
@@ -13,7 +13,7 @@ HealthAI is an intelligent healthcare platform that uses machine learning to pre
 * **AI Medical Chatbot**: Gemini API-powered assistant answers medical queries, explains symptoms, and offers health advice.
 * **Symptom-Based Disease Recommendation**: Input symptoms (e.g., skin rashes) to get possible diagnoses with medication, diet, and precaution tips.
 * **Medicine Recommendation**: Suggests 5 alternative medicines for any searched drug, aiding treatment flexibility.
-# _______________________________________________________________________
+# _________________________________________________________
 
 # Technology Stack
 * **Frontend**: HTML, CSS, JavaScript(Basic), Bootstrap.
@@ -27,7 +27,7 @@ HealthAI is an intelligent healthcare platform that uses machine learning to pre
 * **Deployment**:Flask (for local hosting)
 
 * **Version Control**:GitHub
-# _______________________________________________________________________
+# _________________________________________________________
 
 
 # Installation
@@ -67,7 +67,7 @@ HealthAI is an intelligent healthcare platform that uses machine learning to pre
 ```bash
  🌐 Open your browser and visit: http://localhost:5000
 ```
-# _______________________________________________________________________
+# _________________________________________________________
     
 # 📁 Project File Structure
 
@@ -118,12 +118,12 @@ HealthAI/
 ├── requirements.txt            # Python dependencies
 └── .env                        # Environment configuration
 ```
-# _______________________________________________________________________
+# _________________________________________________________
 
 # 🤝 Contributing
 
 Contributions are welcome! Feel free to fork the repository and submit a pull request to improve the project.
-# _______________________________________________________________________
+# _________________________________________________________
 
 # Contact
 
