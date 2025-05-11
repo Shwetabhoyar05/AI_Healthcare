@@ -1,6 +1,6 @@
 # AI_Healthcare Overview
 
-HealthAI is an intelligent healthcare platform that uses machine learning to predict risks for heart disease, lung cancer survival, and liver cirrhosis stages based on user data input. It features a symptom analyzer that suggests possible diseases along with recommendations for medications, precautions, and diet, a medicine recommender for a list of 5 alternative options, and an AI chatbot for medical queries. Built with Flask, Python, and SQLite, the web app provides personalized health insights through trained Random Forest and Decision Tree models, while ensuring secure user access via login authentication. HealthAI combines medical AI with user-friendly interfaces to support better health decisions.
+AI_Healthcare is a web application that uses machine learning to predict risks for heart disease, lung cancer survival, and liver cirrhosis stages based on user data input. It features a symptom analyzer that suggests possible diseases along with recommendations for medications, precautions, and diet, a medicine recommender for a list of 5 alternative options, and an AI chatbot for medical queries. Built with Flask, Python, and SQLite, the web app provides personalized health insights through trained Random Forest and Decision Tree models, while ensuring secure user access via login authentication. AI_Healthcare combines medical AI with user-friendly interfaces to support better health decisions.
 # _________________________________________________________
 
 # Features
